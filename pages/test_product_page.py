@@ -15,8 +15,9 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.ADD_BUTTON), "There is no message about adding an item to the cart" # Сообщение о добавлении в корзину.
 
     def should_be_correct_name(self):
-        text = self.browser.find_element(*ProductPageLocators.NAME_ADD_BASKET).text # Добавлен корректный товар в корзину.
-        assert text =="The shellcoder's handbook", "Added the wrong product"
+        text_add_name = self.browser.find_element(*ProductPageLocators.NAME_ADD_BASKET).text # Наименование добавленного товара в корзину.
+        text_product = self.browser.find_element(*ProductPageLocators.NAME_PRODUCT).text # Наименование товара
+        assert text_add_name == text_product, "Added the wrong product"
 
     def should_be_price(self):
         assert self.is_element_present(*ProductPageLocators.PRICE_ADDED_TO_BASKET), "There is no message with the price of adding an item to the cart" # Проверка на появлении сообщения с ценой.
