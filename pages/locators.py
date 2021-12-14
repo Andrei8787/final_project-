@@ -13,3 +13,9 @@ class ProductPageLocators():
     NAME_PRODUCT = (By.CSS_SELECTOR, ".col-sm-6.product_main h1") # Наименоване товара
     PRICE_ADDED_TO_BASKET = (By.CSS_SELECTOR, ".alertinner p strong") # Сообщения с ценой о добавлении в корзину.
     PRICE_PRODUCT = (By.CSS_SELECTOR, ".col-sm-6.product_main .price_color") # Цена добавляемого товара.
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages div:nth-child(1)") # Сообщение об успешном добавлении товара в корзину.
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    LOG_IN = (By.NAME, "login_submit")

@@ -27,3 +27,16 @@ class ProductPage(BasePage):
         add_price = self.browser.find_element(*ProductPageLocators.PRICE_ADDED_TO_BASKET).text
         assert add_price == price, "The price in the cart does not match the price of the item "
 
+    def should_not_be_success_message(self): # Проверка на появление элемента в течение определённого времени.
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_not_be_appear(self): # Проверка на пропадание элемента.
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "The success message does not disappear although it should"
+    def test_guest_should_see_login_link_on_product_page(browser):
+        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+        page = ProductPage(browser, link)
+        page.open()
+        page.should_be_login_link()
+
